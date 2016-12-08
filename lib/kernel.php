@@ -14,11 +14,47 @@ class kernel{
         try {
             require_once ROOT_DIR.'/config/config.php';
             if (!self::register_autoload()) {
-                require(dirname(__FILE__) . '/autoload.php');
+                @require_once(dirname(__FILE__) . '/autoload.php');
+            }
+            if(file_exists(ROOT_DIR.'/config/router.php')){
+                @require_once(ROOT_DIR.'/config/router.php');
+            }
+            if(file_exists(PLUGIN_DIR . '/smarty/Smarty.class.php')){
+                require_once(PLUGIN_DIR . '/smarty/Smarty.class.php');
             }
             //处理原始数据，转化成数组
             self::array_tidy_pool($_GET);
             self::array_tidy_pool($_POST);
+            #找到基础路由，分析get参数跳转
+            $requestUrl = $_SERVER['REQUEST_URI'];
+            if(substr($requestUrl,0,10) == '/index.php'){
+                $requestUrl = substr($requestUrl,10);
+            }
+            $methArr = explode('-',$requestUrl);
+            if($methArr[1] == ''){
+                $method = 'index';
+            }else{
+                $method = $methArr[1];
+                unset($methArr[0]);
+                unset($methArr[1]);
+                $requestUrl = substr($requestUrl, 0, strpos($requestUrl,'-'));
+            }
+            #if($requestUrl == ''){
+            #    $requestUrl = '/';
+            #}
+            $requestArr = explode('/',$requestUrl);
+            if(isset($requestArr[1])){
+                $class_name = $_BASE_ROUTER[$requestArr[1]]['class'];
+                if(!$class_name || !class_exists($class_name,true)){
+                    exit('System error: wrong url, please try again.[class do not exist]');
+                }else{
+                    $class = kernel::get_class($class_name);
+                    if(!method_exists($class,$method)){
+                        exit('System error: wrong url, please try again.[function do not exist]');
+                    }
+                    call_user_func_array(array($class, $method),$methArr);
+                }
+            }
         }catch (Exception $e){
             //TODO 异常处理
             elog($e,'kernel exception','kernel_exception');

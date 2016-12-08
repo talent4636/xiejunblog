@@ -7,12 +7,12 @@
 
 $_BASE_ROUTER = [
     'admin' => [
-        'controller'=>'',
+        'class'=>'controller_admin_baseController',
     ],
     'front' => [
-        'controller'=>'',
+        'class'=>'controller_front_baseController',
     ],
     'api' => [
-        'controller'=>''
+        'class'=>'controller_api_baseController'
     ],
 ];

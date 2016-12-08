@@ -4,6 +4,14 @@ define('DATA_DIR', ROOT_DIR.'/data');
 define('LOG_DIR', ROOT_DIR.'/logs');
 define('DB_DIR', ROOT_DIR.'/data/db');
 
+#view
+define('VIEW_DIR', ROOT_DIR.'/view');
+define('PLUGIN_DIR', ROOT_DIR.'/plugin');
+//define('SMARTY_DIR', PLUGIN_DIR.'/smarty');
+define('CACHE_DIR', DATA_DIR.'/cache');
+define('SMARTY_CACHE_TIME', '3600');
+define('SMARTY_CACHE', false);
+
 //////////////////////////////////////////////////////////////
 ////////////////////////常用的debug方法///////////////////////
 //////////////////////////////////////////////////////////////
