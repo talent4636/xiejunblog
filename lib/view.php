@@ -44,4 +44,8 @@ class lib_view{
         $this->smarty->assign($key,$value);
     }
 
+    public function get($key){
+        return $this->smarty->getVariable($key)->value;
+    }
+
 }

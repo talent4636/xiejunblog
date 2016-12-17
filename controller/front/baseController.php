@@ -27,14 +27,49 @@ class controller_front_baseController extends controller_baseController{
     }
 
     public function index(){
-        $this->view->display('front/index.html');
-        $this->view->set('view_dir', VIEW_DIR);
+        self::blog();
+//        $this->view->display('front/index.html');
     }
 
     /**
      * @desc:获取时间线博客
      */
-    public function blog_timeLine(){
-        //
+    public function blog(){
+        $this->_set_nav_active(__FUNCTION__);
+        $this->view->set('blog',array('111','222','3333'));
+        $this->view->display('front/blog.html');
+    }
+
+    public function blog_detail($blog_id){
+        $this->_set_nav_active('blog');
+        $blog_detail = array();
+        $this->view->set('blog',$blog_detail);
+        $this->view->display('front/blog_detail.html');
+    }
+
+    public function tools(){
+        $this->_set_nav_active(__FUNCTION__);
+        $this->view->display('front/blog.html');
+    }
+
+    public function html5(){
+        $this->_set_nav_active(__FUNCTION__);
+        $this->view->display('front/blog.html');
+    }
+
+    /**
+     * @author: xiejun@shopex.cn
+     * @desc:设置一个导航标题为选中
+     */
+    private function _set_nav_active($urlName){
+        $nav = $this->view->get('nav_bar');
+        foreach($nav as $key => $value){
+            if($urlName == $value['url']){
+                $nav[$key]['active'] = true;
+            }else{
+                $nav[$key]['active'] = false;
+            }
+        }
+        $this->view->set('nav_bar',$nav);
     }
 }

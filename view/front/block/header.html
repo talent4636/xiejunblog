@@ -11,13 +11,13 @@
     <div class="header">
         <ul>
         <{foreach from=$nav_bar item=item}>
-            <li class="nav_li">
-                <a href="/index.php/front-<{$item['url']}>">
+            <a href="/index.php/front-<{$item['url']}>">
+                <li class="nav_li <{if $item['active']}>active<{/if}>">
                     <span>
                         <{$item['name']}>
                     </span>
-                </a>
-            </li>
-        <{/foreach}>
+                </li>
+            </a>
+            <{/foreach}>
         </ul>
     </div>

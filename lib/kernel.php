@@ -33,17 +33,15 @@ class kernel{
             $methArr = explode('-',$requestUrl);
             if($methArr[1] == ''){
                 $method = 'index';
+                $class_name = 'controller_front_baseController';
             }else{
                 $method = $methArr[1];
                 unset($methArr[0]);
                 unset($methArr[1]);
                 $requestUrl = substr($requestUrl, 0, strpos($requestUrl,'-'));
             }
-            #if($requestUrl == ''){
-            #    $requestUrl = '/';
-            #}
             $requestArr = explode('/',$requestUrl);
-            if(isset($requestArr[1])){
+            if(isset($requestArr[1]) && $requestArr[1]!=''){
                 $class_name = $_BASE_ROUTER[$requestArr[1]]['class'];
                 if(!$class_name || !class_exists($class_name,true)){
                     exit('System error: wrong url, please try again.[class do not exist]');
@@ -54,11 +52,18 @@ class kernel{
                     }
                     call_user_func_array(array($class, $method),$methArr);
                 }
+            }else{
+                call_user_func_array(array(kernel::get_class($class_name), $method),$methArr);
             }
         }catch (Exception $e){
             //TODO 异常处理
             elog($e,'kernel exception','kernel_exception');
         }
+    }
+
+    static function get_url(){
+        $server_url = $_SERVER['HTTP_HOST'];
+        return 'http://'.$server_url;
     }
 
     static function dataFile(){

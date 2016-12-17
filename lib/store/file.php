@@ -16,7 +16,7 @@ class lib_store_file{
     public function fetch($table_name=null,$_key, &$value=null){
         $file = self::key_to_file($table_name,$_key);
         $value = self::file_get_value($file);
-        return true;
+        return $value;
     }
 
     public function remove($table_name=null,$_key){
@@ -48,7 +48,10 @@ class lib_store_file{
     }
 
     private function file_get_value($file){
-        return unserialize(file_get_contents($file));
+        if(!file_exists($file)){
+            return null;
+        }
+        return @unserialize(file_get_contents($file));
     }
 
     private function del($file){
