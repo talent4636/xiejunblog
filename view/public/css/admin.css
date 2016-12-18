@@ -62,3 +62,11 @@ div.blog-menu{
     border-radius: 5px;
     cursor: pointer;
 }
+.succ_box{
+    width:800px;
+    margin:0 auto;
+    padding:20px 10px;
+    background: lightseagreen;
+    font-size: 20px;
+    color: white;
+}

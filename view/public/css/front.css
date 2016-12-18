@@ -10,6 +10,9 @@ div.header{width: 1000px;height: 30px;}/*border-bottom:1px solid #9B410E;*/
 div.main{width: 100%;min-height: 600px;}
 div.footer{width: 1000px;height: 20px;position:fixed; bottom: 0px; border-top:1px solid #9B410E;text-align: center;}
 
+.fl{float: left;}
+.fr{float: right;}
+
 ul{margin:0px;}
 a{text-decoration: none;color: #000;}
 ul li{
@@ -37,4 +40,14 @@ ul li{
 }
 .nav_li:hover a,.nav_li.active a{
     color: cornflowerblue;
+}
+
+.front-content-list{
+    margin: 15px 40px;
+}
+.front-content-list .d{
+    background-color: #b3d4fd;
+}
+.front-content-list .s{
+    background-color: #f0ead8;
 }

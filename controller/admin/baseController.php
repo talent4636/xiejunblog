@@ -65,7 +65,13 @@ class controller_admin_baseController extends controller_baseController{
             }
             $db->store('base', $markIds, $old_ids);
         }
-        header('Locate:/index.php/admin');
+        header('Refresh:1; URL='.kernel::get_url().'/index.php/admin');
+        exit('<div style="width:800px;
+    margin:0 auto;
+    padding:20px 10px;
+    background: lightseagreen;
+    font-size: 16px;
+    color: white;"><p>保存成功！(1秒后自动跳转)</p></div>');
     }
 
     public function blog_delete($id){

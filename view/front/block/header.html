@@ -10,7 +10,7 @@
 <div class="body">
     <div class="header">
         <ul>
-        <{foreach from=$nav_bar item=item}>
+            <{foreach from=$nav_bar item=item}>
             <a href="/index.php/front-<{$item['url']}>">
                 <li class="nav_li <{if $item['active']}>active<{/if}>">
                     <span>
@@ -19,5 +19,8 @@
                 </li>
             </a>
             <{/foreach}>
+            <li class="fr btn" style="float: right;">
+                <a href="/index.php/admin"><span>管理员</span></a>
+            </li>
         </ul>
     </div>

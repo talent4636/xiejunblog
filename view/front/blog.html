@@ -1,5 +1,20 @@
 <{include "front/block/header.html"}>
+
 <div class="main">
-    <a href="/index.php/front-blog_detail-1">点击这里查看博客</a>
+    <table class="front-content-list">
+        <tr>
+            <th style="width: 50px;">序号</th>
+            <th style="width: 150px">分类名称</th>
+            <th style="width: 700px">文章标题</th>
+        </tr>
+        <{foreach from=$blog item=item key=key}>
+            <tr class="<{if $key%2==1}>d<{else}>s<{/if}>">
+                <td style="text-align: center"><{$key+1}></td>
+                <td style="text-align: center"><{$item.type}></td>
+                <td style="text-align: left"><a href="/index.php/front-blog_detail-<{$item.id}>"><{$item.title}></td>
+            </tr>
+        <{/foreach}>
+    </table>
 </div>
+
 <{include "front/block/footer.html"}>
