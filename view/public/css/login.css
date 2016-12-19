@@ -1,0 +1,41 @@
+.login-main{
+    width: 300px;
+    height: 140px;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 10px 10px;
+    border: 1px solid lightcoral;
+    border-radius: 5px;
+}
+
+.login-main tr{
+    line-height: 35px;
+}
+.login-main th{
+    text-align: right;
+    width: 80px;
+}
+.login-main td{
+
+}
+.login-main td input{
+    height: 20px;
+    border-radius: 3px;
+    border: 1px solid lightseagreen;
+    width: 150px;
+    padding-left: 5px;
+    margin-left: 10px;
+}
+.login-main tr button{
+    padding: 2px 62px;
+    display: block;
+    line-height: 20px;
+    background-color: cadetblue;
+    color: white;
+    font-size: 16px;
+    border: 1px solid cadetblue;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}

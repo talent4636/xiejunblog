@@ -2,7 +2,22 @@
 html{}
 body{margin: 0 auto;width:1000px;}
 div{}
-
+a{text-decoration: none;}
+div.header{
+    background: black;
+    color: white;
+    padding: 5px 2px;
+    font-size: 14px;
+}
+div.header .go-front{
+    float: right;
+    margin-right: 23px;
+    color: white;
+    border: 1px solid white;
+    padding: 1px 5px;
+    border-radius: 2px;
+    font-size: 10px;
+}
 div.footer{width: 1000px;height: 20px;position:fixed; bottom: 0px; text-align: center;}
 
 .admin_blog_tb{
