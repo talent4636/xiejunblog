@@ -23,7 +23,9 @@
                 <th>内容</th>
                 <!--<td><input type="text" name="content" value="<{$blog.content}>"> </td>-->
                 <td>
-                    <textarea id="html-editor" name="content" value="<{$blog.content}> placeholder="请在此处输入文章" autofocus></textarea>
+                    <textarea id="html-editor" name="content" value="<{$blog.content}> placeholder="请在此处输入文章" autofocus>
+                        <{$blog.content}>
+                    </textarea>
                 </td>
             </tr>
             <tr>
