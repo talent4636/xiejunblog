@@ -59,12 +59,12 @@ class controller_front_baseController extends controller_baseController{
 
     public function tools(){
         $this->_set_nav_active(__FUNCTION__);
-        $this->view->display('front/blog.html');
+        $this->view->display('front/tools.html');
     }
 
     public function html5(){
         $this->_set_nav_active(__FUNCTION__);
-        $this->view->display('front/blog.html');
+        $this->view->display('front/html5.html');
     }
 
     /**

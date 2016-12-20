@@ -1,8 +1,14 @@
 <{include "front/block/header.html"}>
 <div class="main">
-    <a href="/index.php/front-blog">返回博客列表</a><br>
-    标题：<{$blog.title}><br>
-    分类：<{$blog.type}><br>
-    内容：<{$blog.content}><br>
+    <div style="width: 100%;float: left;">
+        <a href="/index.php/front-blog">
+            <span class="return-btn">返回博客列表</span>
+        </a>
+    </div>
+    <div class="front-content-detail">
+        <span class="content-title"><{$blog.title}></span>
+        <span class="content-type"><{$blog.type}></span>
+        <div class="content-content"><{$blog.content}></div>
+    </div>
 </div>
 <{include "front/block/footer.html"}>

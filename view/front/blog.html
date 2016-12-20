@@ -2,6 +2,7 @@
 
 <div class="main">
     <table class="front-content-list">
+        <{if $blog}>
         <tr class="title-tr">
             <th style="width: 50px;">序号</th>
             <th style="width: 150px">分类名称</th>
@@ -14,6 +15,11 @@
                 <td style="text-align: left"><a href="/index.php/front-blog_detail-<{$item.id}>"><{$item.title}></td>
             </tr>
         <{/foreach}>
+        <{else}>
+        <div class="content-list-empty">
+            <span>现在还没有内容~</span>
+        </div>
+        <{/if}>
     </table>
 </div>
 

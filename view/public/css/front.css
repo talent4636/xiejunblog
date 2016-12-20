@@ -6,9 +6,9 @@ div{}
 
 div.body{width:1000px;margin: 0 auto;}
 div.header,div.main,div.footer{width:1200px;float: left;border-left: 1px solid #9B410E;border-right:1px solid #9B410E;}
-div.header{width: 1000px;height: 30px;padding-top: 20px;}
+div.header{width: 1000px;height: 30px;padding-top: 20px;border-bottom: 1px solid gray;background-color: blanchedalmond;}
 div.main{width: 100%;min-height: 600px;padding-top: 20px;}
-div.footer{width: 1000px;height: 20px;position:fixed; bottom: 0px; border-top:1px solid #9B410E;text-align: center;}
+div.footer{width: 1000px;height: 20px;position:fixed; bottom: 0px; border-top:1px solid #9B410E;text-align: center;background-color: blanchedalmond;}
 
 .fl{float: left;}
 .fr{float: right;}
@@ -22,12 +22,12 @@ ul li{
     margin: 7px 2px 0px 2px;
 }
 .nav_li{
-    border: 1px solid #DDD;
-    background-color: cornflowerblue;
+    border: 1px solid gray;
+    background-color: #f0ead8;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    /*border-bottom-left-radius: 5px;*/
+    /*border-bottom-right-radius: 5px;*/
 }
 .nav_li:hover, .nav_li.active{
     background-color: white;
@@ -54,4 +54,49 @@ ul li{
 .front-content-list .title-tr{
     background-color: lightcoral;
     color: antiquewhite;
+}
+span.return-btn{
+    float: right;
+    background: cadetblue;
+    color: white;
+    border: 1px solid cadetblue;
+    padding: 2px 5px;
+    display: block;
+    border-radius: 3px;
+    margin-right: 20px;
+    font-size: 14px;
+}
+div.front-content-detail{
+    /*width: auto;*/
+    width: 96%;
+    float: left;
+    padding: 10px 20px;
+}
+span.content-title{
+    font-size: 16px;
+    font-weight: bold;
+    color: darkred;
+    font-family: fantasy;
+    line-height: 20px;
+}
+span.content-type{
+    border: 1px solid crimson;
+    background: crimson;
+    padding: 1px 3px;
+    border-radius: 2px;
+    color: azure;
+    font-size: 12px;
+}
+div.content-content{
+    height: auto;
+    border-top: 1px solid lightcoral;
+    margin-top: 10px;
+}
+div.content-list-empty{
+    padding: 20px;
+    font-size: 120px;
+    font-family: sans-serif;
+    color: cornflowerblue;
+    line-height: 200px;
+    text-align: center;
 }
