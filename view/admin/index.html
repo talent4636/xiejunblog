@@ -5,7 +5,7 @@
     </div>
     <table class="admin_blog_tb">
         <tr>
-            <th class="width_pre_5">编号</th>
+            <th style="text-align: center;" class="width_pre_5">编号</th>
             <th class="width_pre_15">分类</th>
             <th class="width_pre_70">标题</th>
             <th class="width_pre_10">操作</th>
@@ -13,7 +13,7 @@
         <{if $blog}>
         <{foreach from=$blog item=item key=k}>
         <tr>
-            <td><{$k+1}></td>
+            <td style="text-align: center;"><{$k+1}></td>
             <td>
                 <a href="#"><{$item.type}></a>
             </td>
