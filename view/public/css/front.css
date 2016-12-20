@@ -7,7 +7,7 @@ div{}
 div.body{width:1000px;margin: 0 auto;}
 div.header,div.main,div.footer{width:1200px;float: left;border-left: 1px solid #9B410E;border-right:1px solid #9B410E;}
 div.header{width: 1000px;height: 30px;padding-top: 20px;border-bottom: 1px solid gray;background-color: blanchedalmond;}
-div.main{width: 100%;min-height: 600px;padding-top: 20px;}
+div.main{width: 100%;min-height: 570px;padding-top: 20px;}
 div.footer{width: 1000px;height: 20px;position:fixed; bottom: 0px; border-top:1px solid #9B410E;text-align: center;background-color: blanchedalmond;}
 
 .fl{float: left;}
