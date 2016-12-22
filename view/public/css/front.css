@@ -44,6 +44,7 @@ ul li{
 
 .front-content-list{
     margin: 0 auto;
+    line-height: 30px;
 }
 .front-content-list .d{
     background-color: #b3d4fd;

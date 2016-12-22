@@ -28,7 +28,6 @@ class controller_front_baseController extends controller_baseController{
 
     public function index(){
         self::blog();
-//        $this->view->display('front/index.html');
     }
 
     /**
@@ -45,7 +44,7 @@ class controller_front_baseController extends controller_baseController{
                 $blog[] = $db->fetch('content',$id);
             }
         }
-        $this->view->set('blog',$blog);
+        $this->view->set('blog',array_reverse($blog));
         $this->view->display('front/blog.html');
     }
 
