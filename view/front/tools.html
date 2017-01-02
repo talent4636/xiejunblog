@@ -1,9 +1,16 @@
 <{include "front/block/header.html"}>
 
 <div class="main">
-    <div class="content-list-empty">
-        <span>没有小工具</span>
+    <div class="tools-box">
+        <ul>
+            <{foreach from=$func_list item=item key=key}>
+            <a target="" href="/index.php/front-tools_detail-<{$item.0}>"><li><{$item.1}></li></a>
+            <{/foreach}>
+        </ul>
     </div>
+    <!--<div class="content-list-empty">-->
+        <!--<span>没有小工具</span>-->
+    <!--</div>-->
 </div>
 
 <{include "front/block/footer.html"}>

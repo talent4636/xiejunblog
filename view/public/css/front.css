@@ -101,3 +101,51 @@ div.content-list-empty{
     line-height: 200px;
     text-align: center;
 }
+
+/* tools box */
+.tools-box-detail{
+    width: 100%;
+    height: 50px;
+}
+div.input-data, div.output-data{
+    width: 800px;
+    height: 150px;
+    margin: 0 auto;
+}
+div.output-data{
+    height: auto;
+}
+div.input-data textarea{
+    width: 100%;
+    height: 100%;
+    background: #EEE;
+    padding: 5px;
+}
+.tools-box-detail .title-select{
+    background: #deb887;
+    border-radius: 3px;
+}
+div.input-commit-btn{
+    width: 100%;
+    height: 40px;
+    padding-top: 20px;
+    border-bottom: 1px solid red;
+}
+div.input-commit-btn button{
+    margin: 0 auto;
+    display: block;
+    font-size: 16px;
+    padding: 4px 50px;
+    border: 1px solid brown;
+    color: white;
+    background-color: brown;
+    border-radius: 5px;
+    cursor: pointer;
+}
+div.input-data input{
+    border: 1px solid #663399;
+    padding: 2px 5px;
+    line-height: 14px;
+    border-radius: 2px;
+    background-color: #f5f5dc;
+}

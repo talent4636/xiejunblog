@@ -57,8 +57,63 @@ class controller_front_baseController extends controller_baseController{
     }
 
     public function tools(){
+        $this->view->set('func_list',self::tools_list());
         $this->_set_nav_active(__FUNCTION__);
         $this->view->display('front/tools.html');
+    }
+
+    static private function tools_list(){
+        return array(
+            array('serialize','序列化'),
+            array('unserialize','反序列化'),
+            array('jsonencode','Json_encode'),
+            array('jsondecode','Json_decode'),
+            array('unixtime','UNIX时间转化'),
+            array('timeunix','时间转化时间戳'),
+        );
+    }
+
+    public function tools_detail($funcName=null){
+        $dataInput = $_POST['data'];
+        if($dataInput){
+            #$dataType = $_POST['type'];//print_r
+            switch($funcName){
+                case 'unserialize':
+                    $data = unserialize($dataInput);
+                    break;
+                case 'serialize':
+                    eval('$input='.$dataInput.(substr($dataInput,-1,1)==';'?'':';'));
+                    $data = serialize($input);
+                    break;
+                case 'jsonencode':
+                    eval('$input='.$dataInput.(substr($dataInput,-1,1)==';'?'':';'));
+                    $data = json_encode($input);
+                    break;
+                case 'jsondecode':
+                    $data = json_decode($dataInput);
+                    break;
+                case 'unixtime':
+                    $data = date('Y-m-d H:i:s',($dataInput));
+                    break;
+            }
+        }elseif(isset($_POST['y'])){
+            $dataInput = array(
+                $_POST['y'],
+                $_POST['m'],
+                $_POST['d'],
+                $_POST['h'],
+                $_POST['i'],
+                $_POST['s'],
+            );
+            $data = strtotime($dataInput[0].'-'.$dataInput[1].'-'.$dataInput[2].' '.$dataInput[3].':'.$dataInput[4].':'.$dataInput[5]);
+        }else{
+            $dataInput = null;
+        }
+        $this->view->set('current_func', $funcName);
+        $this->view->set('func_list',self::tools_list());
+        $this->view->set('dataInput',$dataInput);
+        $this->view->set('dataOutput', print_r($data,1));
+        $this->view->display('front/tools_detail_display.html');
     }
 
     public function html5(){

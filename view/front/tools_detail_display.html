@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title><{$site_title}></title>
+    <!--<script src="<{$view_dir}>/public/js/main.js"></script>-->
+    <link href="<{$view_dir}>/public/css/front.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="body">
+    <div class="main" style="height: 100%; border-bottom:1px solid #9B410E;">
+        <div class="tools-box-detail">
+            <ul>
+                <a target="" href="/index.php/front"><li class="back-to-top">返回首页</li></a>
+                <{foreach from=$func_list item=item key=key}>
+                <a target="" href="/index.php/front-tools_detail-<{$item.0}>">
+                    <li class="<{if $item.0==$current_func}>title-select<{/if}>"><{$item.1}></li>
+                </a>
+                <{/foreach}>
+            </ul>
+        </div>
+        <form action="/index.php/front-tools_detail-<{$current_func}>" method="post" id="tools-post">
+            <div class="input-data">
+                <{if $current_func=='timeunix'}>
+                <input type="text" size="4" maxlength="4" name="y" value="<{$dataInput.0}>">&nbsp;年&nbsp;&nbsp;
+                <input type="text" size="2" maxlength="2" name="m" value="<{$dataInput.1}>">&nbsp;月&nbsp;&nbsp;
+                <input type="text" size="2" maxlength="2" name="d" value="<{$dataInput.2}>">&nbsp;日&nbsp;&nbsp;&nbsp;
+                <input type="text" size="2" maxlength="2" name="h" value="<{$dataInput.3}>">&nbsp;：
+                <input type="text" size="2" maxlength="2" name="i" value="<{$dataInput.4}>">&nbsp;：
+                <input type="text" size="2" maxlength="2" name="s" value="<{$dataInput.5}>">
+                <{else}>
+                <textarea name="data"><{$dataInput}></textarea>
+                <{/if}>
+            </div>
+            <div class="input-commit-btn">
+                <button type="submit" >提交</button>
+            </div>
+        </form>
+        <div class="output-data">
+            <pre><{$dataOutput}></pre>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
