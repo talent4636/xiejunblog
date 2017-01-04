@@ -90,7 +90,7 @@ class controller_front_baseController extends controller_baseController{
                     $data = json_encode($input);
                     break;
                 case 'jsondecode':
-                    $data = json_decode($dataInput);
+                    $data = json_decode($dataInput, true);
                     break;
                 case 'unixtime':
                     date_default_timezone_set("Asia/Shanghai");//如果没有timezone，时间差8小时
