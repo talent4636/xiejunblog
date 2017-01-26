@@ -75,22 +75,29 @@ class controller_front_baseController extends controller_baseController{
 
     public function tools_detail($funcName=null){
         $dataInput = $_POST['data'];
+        $default_msg = '不是合法的格式,请检查';
         if($dataInput){
             #$dataType = $_POST['type'];//print_r
             switch($funcName){
                 case 'unserialize':
+                    $dataInput = urldecode($dataInput);
                     $data = unserialize($dataInput);
+                    $data = $data?$data:$default_msg;
                     break;
                 case 'serialize':
                     eval('$input='.$dataInput.(substr($dataInput,-1,1)==';'?'':';'));
                     $data = serialize($input);
+                    $data = $data?$data:$default_msg;
                     break;
                 case 'jsonencode':
                     eval('$input='.$dataInput.(substr($dataInput,-1,1)==';'?'':';'));
                     $data = json_encode($input);
+                    $data = $data?$data:$default_msg;
                     break;
                 case 'jsondecode':
+                    $dataInput = urldecode($dataInput);
                     $data = json_decode($dataInput, true);
+                    $data = $data?$data:$default_msg;
                     break;
                 case 'unixtime':
                     date_default_timezone_set("Asia/Shanghai");//如果没有timezone，时间差8小时
