@@ -70,6 +70,7 @@ class controller_front_baseController extends controller_baseController{
             array('jsondecode','Json_decode'),
             array('unixtime','UNIX时间转化'),
             array('timeunix','时间转化时间戳'),
+            array('qrcode','生成二维码'),
         );
     }
 
@@ -103,8 +104,11 @@ class controller_front_baseController extends controller_baseController{
                     date_default_timezone_set("Asia/Shanghai");//如果没有timezone，时间差8小时
                     $data = date('Y-m-d H:i:s',($dataInput));
                     break;
+                default:
+                    exit('error_function');
+                    break;
             }
-        }elseif(isset($_POST['y'])){
+        }elseif(isset($_POST['y'])) {
             $dataInput = array(
                 $_POST['y'],
                 $_POST['m'],
@@ -113,7 +117,18 @@ class controller_front_baseController extends controller_baseController{
                 $_POST['i'],
                 $_POST['s'],
             );
-            $data = strtotime($dataInput[0].'-'.$dataInput[1].'-'.$dataInput[2].' '.$dataInput[3].':'.$dataInput[4].':'.$dataInput[5]);
+            $data = strtotime($dataInput[0] . '-' . $dataInput[1] . '-' . $dataInput[2] . ' ' . $dataInput[3] . ':' . $dataInput[4] . ':' . $dataInput[5]);
+        }elseif(isset($_POST['text'])){
+            include PLUGIN_DIR.'/phpqrcode/phpqrcode.php';
+            $img_file_name = DATA_DIR.'/qrcode/code.png';
+            $dataInput = array(
+                'text' => $_POST['text'],
+                'level' => $_POST['level'],
+                'size' => $_POST['size'],
+                'margin' => $_POST['margin'],
+            );
+            QRcode::png($_POST['text'],$img_file_name,$_POST['level'],$_POST['size'],$_POST['margin']);
+            $this->view->set('data','/data/qrcode/code.png?'.time());
         }else{
             $dataInput = null;
         }

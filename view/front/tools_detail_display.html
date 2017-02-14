@@ -28,6 +28,23 @@
                 <input type="text" size="2" maxlength="2" name="h" value="<{$dataInput.3}>">&nbsp;：
                 <input type="text" size="2" maxlength="2" name="i" value="<{$dataInput.4}>">&nbsp;：
                 <input type="text" size="2" maxlength="2" name="s" value="<{$dataInput.5}>">
+                <{elseif $current_func=='qrcode'}>
+                <table>
+                    <tr><td>转换的字符</td><td><input name="text" style="width:600px;" value="<{$dataInput.text|default:'http://www.xiejun.me'}>" placeholder="输入请求url地址"></td></tr>
+                    <tr>
+                        <td>容错率</td>
+                        <td>
+                            <select name="level">
+                                <option <{if $dataInput.level=='QR_ECLEVEL_L'}>selected="selected"<{/if}> value="QR_ECLEVEL_L">7%</option>
+                                <option <{if $dataInput.level=='QR_ECLEVEL_M'}>selected="selected"<{/if}>  value="QR_ECLEVEL_M">15%</option>
+                                <option <{if $dataInput.level=='QR_ECLEVEL_Q'}>selected="selected"<{/if}> value="QR_ECLEVEL_Q">25%</option>
+                                <option <{if $dataInput.level=='QR_ECLEVEL_H'}>selected="selected"<{/if}> value="QR_ECLEVEL_H">30%</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr><td>图片大小</td><td><input type="text" name="size" value="<{$dataInput.size|default:8}>" placeholder="请输入数字"></td></tr>
+                    <tr><td>周围留白大小</td><td><input type="text" name="margin" value="<{$dataInput.margin|default:0}>" placeholder="请输入数字"></td></tr>
+                </table>
                 <{else}>
                 <textarea name="data"><{$dataInput}></textarea>
                 <{/if}>
@@ -37,7 +54,13 @@
             </div>
         </form>
         <div class="output-data">
+            <{if $current_func=='qrcode'}>
+            <div style="width:auto;margin-top:20px;text-align: center;">
+                <img style="border: 2px solid #000;" src="<{$data}>">
+            </div>
+            <{else}>
             <pre><{$dataOutput}></pre>
+            <{/if}>
         </div>
 
     </div>
