@@ -62,8 +62,13 @@ class kernel{
     }
 
     static function get_url(){
+        if($_SERVER['SERVER_PORT'] == '443'){
+            $https = true;
+        }else{
+            $https = false;
+        }
         $server_url = $_SERVER['HTTP_HOST'];
-        return 'http://'.$server_url;
+        return ($https?'https':'http').'://'.$server_url;
     }
 
     static function dataFile(){
